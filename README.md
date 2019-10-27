@@ -28,7 +28,7 @@ desenvolvimento de páginas web, é baseado em componentes para facilitar a rend
 desses componentes quando os dados forem alterados, tornando assim o código mais
 previsível e mais fácil de ser depurado.
 
-Bank-End: o framework escolhido para trabalhar o back-end da loja virtual
+Back-End: o framework escolhido para trabalhar o back-end da loja virtual
 foi o NodeJs. O Node.js é um interpretador, com código aberto, de código JavaScript de
 modo assíncrono e orientado a eventos, focado em migrar a programação do Javascript do
 lado do cliente para os servidores, criando assim aplicações de alta escalabilidade (como
