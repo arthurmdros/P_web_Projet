@@ -1,0 +1,4 @@
+A presente pasta tem como objetivo armazenar os arquivos de implementação do CRUD de Clientes do projeto em grupo da disciplina de PWEB, que tem como tema uma loja de roupas.
+
+E-mail: kael.leak1998@gmail.com
+Matrícula:20170045657
