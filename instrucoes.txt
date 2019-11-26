@@ -11,6 +11,8 @@ Instruções de instalação e execução do projeto:
     5 - Instale o Robo3T:
         https://robomongo.org/
     6 - Crie uma nova conexão no Robo3T em localhost:27017;
-    7 - Execute o comando na pasta raiz do projeto:
+    7 - Instale Insomnia (caso deseje manipular registros com get, post etc.):
+        https://insomnia.rest/
+    8 - Execute o comando na pasta raiz do projeto:
         docker start mongodb
-    8 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
+    9 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
