@@ -13,6 +13,8 @@ Instruções de instalação e execução do projeto:
     6 - Crie uma nova conexão no Robo3T em localhost:27017;
     7 - Instale Insomnia (caso deseje manipular registros com get, post etc.):
         https://insomnia.rest/
-    8 - Execute o comando na pasta raiz do projeto:
+    8 - Instale o Yarn:
+        https://yarnpkg.com/lang/en/
+    9 - Execute o comando na pasta raiz do projeto:
         docker start mongodb
-    9 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
+    10 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
