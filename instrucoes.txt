@@ -1,3 +1,16 @@
-1 - Instale o NodeJS em sua máquina:
-    https://nodejs.org/en/
-2 - 
+Instruções de instalação e execução do projeto:
+    1 - Instale o NodeJS em sua máquina:
+        https://nodejs.org/en/
+    2 - Instale a versão gratuita do Docker:
+        https://www.docker.com/
+    3 - Instale o MongoDB através do comando:
+        docker pull mongo
+        (OBS.: talvez resulte em erro de permissão. Digite execute o comando sudo su para evitar problemas com permissão.)
+    4 - Suba um novo container na máquina:
+        docker run --name mongodb -p 27017:27017 -d mongo
+    5 - Instale o Robo3T:
+        https://robomongo.org/
+    6 - Crie uma nova conexão no Robo3T em localhost:27017;
+    7 - Execute o comando na pasta raiz do projeto:
+        docker start mongodb
+    8 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
