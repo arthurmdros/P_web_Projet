@@ -5,19 +5,43 @@ import './styles.css';
 export default class Main extends Component {
     state = {
         customers: [],
+        customerInfo: {},
+        page: 1,
     }
 
     componentDidMount(){
         this.loadCustomers();
     }
 
-    loadCustomers = async () => {
-        const response = await api.get('/customers');
-        this.setState({ customers: response.data.docs });
+    loadCustomers = async ( page = 1 ) => {
+        const response = await api.get(`/customers?page=${page}`);
+
+        const { docs, ... customerInfo } = response.data;
+
+        this.setState({ customers: docs, customerInfo, page });
     }
 
+    nextPage = () => {
+        const { page, customerInfo } = this.state;
+
+        if (page === customerInfo.pages) return;
+
+        const pageNumber = page+1;
+        
+        this.loadCustomers(pageNumber);
+    };
+    prevPage = () => {
+        const { page, customerInfo } = this.state;
+
+        if (page === 1) return;
+
+        const pageNumber = page - 1;
+
+        this.loadCustomers(pageNumber);
+    };
+
     render(){
-        const {customers} = this.state;
+        const {customers, page, customerInfo} = this.state;
 
         return (
             <div className="customer-list">
@@ -32,8 +56,12 @@ export default class Main extends Component {
                     </article>
                 ))}
                 <div className="actions">
-                    <button>Anterior</button>
-                    <button>Próxima</button>
+                    <button disabled={page === 1} onClick={this.prevPage}>
+                        Anterior
+                    </button>
+                    <button disabled={page === customerInfo.pages} onClick={this.nextPage}>
+                        Próxima
+                    </button>
                 </div>
             </div>
         );  

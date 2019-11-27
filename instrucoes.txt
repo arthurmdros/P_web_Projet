@@ -15,6 +15,11 @@ Instruções de instalação e execução do projeto:
         https://insomnia.rest/
     8 - Instale o Yarn:
         https://yarnpkg.com/lang/en/
-    9 - Execute o comando na pasta raiz do projeto:
+    9 - Execute o comando:
+        npm install -g react-scripts
+        npm install -g create-react-app
+    
+    10- Execute o comando na pasta raiz do projeto:
         docker start mongodb
-    10 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
+    11- Abrir o terminal na pasta raiz e executar o comando "npm run dev";
+    12- Abrir o terminal na pasta reactapp e executar o comando "npm start";

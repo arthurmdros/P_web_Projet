@@ -50,6 +50,14 @@
     cursor: pointer;
 }
 
+.customer-list .actions button[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.customer-list .actions button[disabled]:hover {
+    opacity: 0.5;
+}
 .customer-list .actions button:hover {
     opacity: 0.8;
 }
