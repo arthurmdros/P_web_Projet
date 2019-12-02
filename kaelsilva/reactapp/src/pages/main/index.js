@@ -53,7 +53,6 @@ export default class Main extends Component {
                         <p><strong>Data de nascimento:</strong> {customer.dataDeNascimento}</p>
                         <p><strong>Sexo:</strong> '{customer.sexo}'</p>
                         <Link to={`/api/customers/${customer._id}`}>Alterar</Link>
-                        <a href="./">Deletar</a>
                         <br /><br />
                     </article>
                 ))}
