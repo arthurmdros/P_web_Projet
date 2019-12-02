@@ -1,6 +1,0 @@
-A presente pasta tem como objetivo armazenar os arquivos de implementação das seguintes
-funcionalidades: controle de finanças, ouvidoria e controle de vendas. Referentes ao projeto 
-em grupo da disciplina de PWEB, que tem como tema uma loja de roupas.
-
-E-mail: arthurmedeiros2005@gmail.com
-Matrícula:20170045479
