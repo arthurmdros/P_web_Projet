@@ -1,11 +1,14 @@
-import React from 'react';
+import React from 'react';//react divide uam pagina em varios componentes
+import "./styles.css";
+import Header from './componentes/Header';
+import Main from "./pages/main";
 
-function App() {
-  return (
+
+const App = () => (
     <div className="App">
-      <h1>hellow world</h1>
+      <Header/>
+      <Main/>
     </div>
-  );
-}
+);
 
 export default App;
