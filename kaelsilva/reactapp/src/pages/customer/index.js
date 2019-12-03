@@ -15,6 +15,16 @@ export default class Customer extends Component{
         };
     }
 
+    deleteCustomer = event => {
+        event.preventDefault();
+
+        const { id } = this.props.match.params;
+
+        api.delete(`/customers/${id}`);
+
+        alert('Cliente deletado com sucesso!');
+    }
+
     handleChange = event => {
         this.setState({[event.target.name] : event.target.value}, ()=>{
             if (this.state.nome != '')
@@ -37,6 +47,8 @@ export default class Customer extends Component{
         const { id } = this.props.match.params;
 
         api.put(`/customers/${id}`, customer);
+
+        alert('Cliente atualizado com sucesso!');
     }
 
     async componentDidMount(){
@@ -91,6 +103,9 @@ export default class Customer extends Component{
                     </table>
                     <div className="actions">
                         <Link to={`/api/customers`}>Voltar</Link>
+                        <button type="submit" onClick={this.deleteCustomer}>
+                            Deletar
+                        </button>
                         <button type="submit" onClick={this.handleChange}>
                             Alterar
                         </button>
