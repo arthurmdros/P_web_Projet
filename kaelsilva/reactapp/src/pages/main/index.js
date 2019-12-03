@@ -52,7 +52,7 @@ export default class Main extends Component {
                         <p><strong>Nome do cliente:</strong> {customer.nome}</p>
                         <p><strong>Data de nascimento:</strong> {customer.dataDeNascimento}</p>
                         <p><strong>Sexo:</strong> '{customer.sexo}'</p>
-                        <Link to={`/api/customers/${customer._id}`}>Alterar</Link>
+                        <Link to={`/api/customers/${customer._id}`}>Consultar</Link>
                         <br /><br />
                     </article>
                 ))}
