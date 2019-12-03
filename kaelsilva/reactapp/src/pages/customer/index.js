@@ -15,12 +15,40 @@ export default class Customer extends Component{
         };
     }
 
-    handleChange = (event) => {
+    deleteCustomer = event => {
+        event.preventDefault();
+
+        const { id } = this.props.match.params;
+
+        api.delete(`/customers/${id}`);
+
+        alert('Cliente deletado com sucesso!');
+    }
+
+    handleChange = event => {
         this.setState({[event.target.name] : event.target.value}, ()=>{
-            console.log(this.state.nome);
-            this.state.customer.nome = this.state.nome;
-            console.log(this.state.customer.nome);
+            if (this.state.nome != '')
+                this.state.customer.nome = this.state.nome;
+            if (this.state.dataDeNascimento != '')
+                this.state.customer.dataDeNascimento = this.state.dataDeNascimento;
+            if (this.state.cpf != '')
+                this.state.customer.cpf = this.state.cpf;
+            if (this.state.sexo != '')
+                this.state.customer.sexo = this.state.sexo;
+            console.log(this.state.customer);
         });
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+
+        const customer = this.state.customer;
+        
+        const { id } = this.props.match.params;
+
+        api.put(`/customers/${id}`, customer);
+
+        alert('Cliente atualizado com sucesso!');
     }
 
     async componentDidMount(){
@@ -38,46 +66,52 @@ export default class Customer extends Component{
             <div className="customer-info">
                 <form onSubmit={this.handleSubmit}>
                     <table>
-                        <tr>
-                            <td>
-                                <p><strong>Nome:</strong></p>
-                            </td>
-                            <td>
-                                <input name="nome" className="customer-name" defaultValue={customer.nome} onChange={this.handleChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><strong>Data de Nascimento:</strong></p>
-                            </td>
-                            <td>
-                                <input name="dataDeNascimento" className="customer-birthday" defaultValue={customer.dataDeNascimento} onChange={this.handleChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><strong>Sexo:</strong></p>
-                            </td>
-                            <td>
-                                <input name="sexo" className="customer-sex" defaultValue={customer.sexo} onChange={this.handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><strong>CPF:</strong></p>
-                            </td>
-                            <td>
-                                <input name="cpf" className="customer-cpf" defaultValue={customer.cpf} onChange={this.handleChange} />
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p><strong>Nome:</strong></p>
+                                </td>
+                                <td>
+                                    <input name="nome" className="customer-name" defaultValue={customer.nome} onChange={this.handleChange}/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Data de Nascimento:</strong></p>
+                                </td>
+                                <td>
+                                    <input name="dataDeNascimento" className="customer-birthday" defaultValue={customer.dataDeNascimento} onChange={this.handleChange}/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Sexo:</strong></p>
+                                </td>
+                                <td>
+                                    <input name="sexo" className="customer-sex" defaultValue={customer.sexo} onChange={this.handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>CPF:</strong></p>
+                                </td>
+                                <td>
+                                    <input name="cpf" className="customer-cpf" defaultValue={customer.cpf} onChange={this.handleChange} />
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
+                    <div className="actions">
+                        <Link to={`/api/customers`}>Voltar</Link>
+                        <button type="submit" onClick={this.deleteCustomer}>
+                            Deletar
+                        </button>
+                        <button type="submit" onClick={this.handleChange}>
+                            Alterar
+                        </button>
+                    </div>
                 </form>
-                 <div className="actions">
-                    <Link to={`/api/customers`}>Voltar</Link>
-                    <button onClick={this.handleChange}>
-                        Alterar
-                    </button>
-                </div>
+                 
             </div>
         );
     }
