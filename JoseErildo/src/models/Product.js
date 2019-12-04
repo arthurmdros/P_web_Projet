@@ -2,22 +2,22 @@
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({
-    id:{
-        type: Int16Array,
+    /*id:{
+        type: Number,
         required: true,
-    },
+    },*/
     nome:{
         type: String,
         required: true,
     },
-    descricao{
+    descricao: {
         type: String,
         required: true,
     },
     createdAt: {
         type: Date,
-        default: Date.now;
-    };
+        default: Date.now,
+    },
 
 });
 

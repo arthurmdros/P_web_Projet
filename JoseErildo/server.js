@@ -1,20 +1,20 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
+const express = require("express");
+const mongoose = require("mongoose");
+const requireDir = require("require-dir");
 
 //Iniciando o app
 const app = express();
 
 // Iniciando o DB
 mongoose.connect(
-    'mongodb://localhost:27017/nodeapi', 
-    { useNewUrlParser: true});
+    "mongodb://localhost:27017/node", 
+    { useUnifiedTopology: true});
 
-    require('./src/models/Product');
+    requireDir("./src/models");
+
+    //const Product = mongoose.model('Product');
 // Primeira Rota
-app.get("/", (req, res) =>{
-    res.send("Hello Rocketseat");
-});
+app.use('/api', require('./src/routes'));
 
 
-app.listen(3001);
+app.listen(3001);   
