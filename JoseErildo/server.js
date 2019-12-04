@@ -12,7 +12,6 @@ mongoose.connect(
 
     requireDir("./src/models");
 
-    //const Product = mongoose.model('Product');
 // Primeira Rota
 app.use('/api', require('./src/routes'));
 
