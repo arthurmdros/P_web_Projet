@@ -1,4 +1,4 @@
-header#main-header { /*depois importa la no index do header*/
+header#main-header {
     height: 60px;
     background: #da552f;
     font-size: 18px;
@@ -7,4 +7,5 @@ header#main-header { /*depois importa la no index do header*/
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} 
+/*depois importa la no index do header*/

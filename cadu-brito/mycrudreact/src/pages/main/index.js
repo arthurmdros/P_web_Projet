@@ -1,70 +1,71 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import api from '../../services/api';
-import { Link } from 'react-router-dom';
+import './styles.css';
 
-import "./styles.css";
+import { Link } from 'react-router-dom';
 
 export default class Main extends Component {
     state = {
-        funcionarios: [],
-        funcionarioInfo: {},
-        page: 1
-    };
-
-    componentDidMount() {
-        this.loadFuncionarios();
+        customers: [],
+        customerInfo: {},
+        page: 1,
     }
 
-    loadFuncionarios = async (page = 1) => {
-        const response = await api.get(`/funcionario/?page=${page}`);
+    componentDidMount(){
+        this.loadCustomers();
+    }
 
-        const { docs, ...funcionarioInfo} = response.data;
+    loadCustomers = async ( page = 1 ) => {
+        const response = await api.get(`/customers?page=${page}`);
 
-        this.setState({ funcionarios: docs, funcionarioInfo, page });
+        const { docs, ... customerInfo } = response.data;
+
+        this.setState({ customers: docs, customerInfo, page });
+    }
+
+    nextPage = () => {
+        const { page, customerInfo } = this.state;
+
+        if (page === customerInfo.pages) return;
+
+        const pageNumber = page+1;
+        
+        this.loadCustomers(pageNumber);
     };
-
     prevPage = () => {
-        const { page, funcionarioInfo } = this.state;
+        const { page, customerInfo } = this.state;
 
         if (page === 1) return;
 
         const pageNumber = page - 1;
 
-        this.loadFuncionarios(pageNumber);
+        this.loadCustomers(pageNumber);
     };
 
-    nextPage = () => {
-
-        const { page, funcionarioInfo } = this.state;
-
-        if (page === funcionarioInfo.pages) return;
-
-        const pageNumber = page + 1;
-
-        this.loadFuncionarios(pageNumber);
-    };
-
-    render() {
-
-        const { funcionarios, funcionarioInfo, page } = this.state;
+    render(){
+        const {customers, page, customerInfo} = this.state;
 
         return (
-            <div className="funcionario-list">
-                {funcionarios.map(funcionario => (
-                    <article key={funcionario._id}>
-                           <strong>{funcionario.cpf}</strong> 
-                            <p>{funcionario.nome}</p>
-
-                            < Link to={`/funcionario/${funcionario._id}`}>Acessar</Link>
+            <div className="customer-list">
+                {customers.map(customer => (
+                    <article key={customer._id}>
+                        <p><strong>Nome do cliente:</strong> {customer.nome}</p>
+                        <p><strong>Data de nascimento:</strong> {customer.dataDeNascimento}</p>
+                        <p><strong>Sexo:</strong> '{customer.sexo}'</p>
+                        <Link to={`/customers/${customer._id}`}>Consultar</Link>
+                        <br /><br />
                     </article>
-
                 ))}
-            <div className="actions">
-                <button disabled={page === 1} onClick={this.prevPage}>Anterior</button>
-                <button disabled={page === funcionarioInfo.pages} onClick={this.nextPage}>Proximo</button>
+                <div className="actions">
+                    <button disabled={page === 1} onClick={this.prevPage}>
+                        Anterior
+                    </button>
+                    <Link to={`/new_customer`}>Novo cliente</Link>
+                    <button disabled={page === customerInfo.pages} onClick={this.nextPage}>
+                        Próxima
+                    </button>
+                </div>
             </div>
-
-            </div>            
-        );
+        );  
     }
 }
