@@ -36,3 +36,26 @@
     background: #da552f;
     color: #FFF;
 }
+.funcionario-list .actions{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+.funcionario-list .actions button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background: #da552f;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.funcionario-list .actions button:hover {
+    opacity:0.7 ;
+}
+.funcionario-list .actions button[disabled]{
+    opacity:0.5 ;
+    cursor: default;
+}
