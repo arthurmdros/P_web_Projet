@@ -1,14 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
 
-//Iniciando o app
 const app = express();
 
-//Banco de dados
-mongoose.connect("mongodb://localhost:27017/nodeapi", { useNewUrlParser: true});
-
-//Primeira rota
 app.get('/', (req, res) => {
-    res.send("oi")
+    res.send("oi ewerton")
+
 });
-app.listen(3001); 
+
+app.listen(3001);
