@@ -7,15 +7,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 //iniciando do banco de dados
-mongoose.connect('mongodb://localhost:27017/nodeapi',{useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/nodeapi',{useNewUrlParser: true});
 
 requireDir('./src/models');
 
 app.use('/api', require('./src/routes'));
 app.listen(3001);
-
-
-
 
 
 

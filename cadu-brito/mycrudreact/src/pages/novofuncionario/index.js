@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import './styles.css';
 import { Link } from 'react-router-dom';
-export default class Funcionario extends Component{
+
+export default class Novo_Funcionario extends Component{
     constructor(){
         super();
         this.state = {
@@ -12,17 +12,6 @@ export default class Funcionario extends Component{
             url: '',
         };
     }
-    
-    deleteFuncionario = event => {
-        event.preventDefault();
-
-        const { id } = this.props.match.params;
-
-        api.delete(`/funcionarios/${id}`);
-
-        alert('sucesso!');
-    }
-
     handleChange = event => {
         this.setState({[event.target.name] : event.target.value}, ()=>{
             if (this.state.cpf != '')
@@ -34,26 +23,20 @@ export default class Funcionario extends Component{
             console.log(this.state.funcionario);
         });
     }
+    
 
     handleSubmit = event => {
         event.preventDefault();
 
         const funcionario = this.state.funcionario;
-        
-        const { id } = this.props.match.params;
 
-        api.put(`/funcionarios/${id}`, funcionario);
+        //const { id } = this.props.match.params;
 
-        alert('atualizado com sucesso!');
+        api.post('funcionarios/', funcionario);
+
+        alert('criado com sucesso.');
     }
 
-    async componentDidMount(){
-        const { id } = this.props.match.params;
-
-        const response = await api.get(`/funcionarios/${id}`);
-
-        this.setState({ funcionario: response.data });
-    }
 
     render(){
         const { funcionario } = this.state;
@@ -61,9 +44,9 @@ export default class Funcionario extends Component{
         return (
             <div className="funcionario-info">
                 <form onSubmit={this.handleSubmit}>
-                    <table>
+                <table>
                         <tbody>
-                            <tr>
+                        <tr>
                                 <td>
                                     <p><strong>CPF:</strong></p>
                                 </td>
@@ -91,11 +74,8 @@ export default class Funcionario extends Component{
                     </table>
                     <div className="actions">
                         <Link to={`/funcionarios`}>Voltar</Link>
-                        <button type="submit" onClick={this.deleteFuncionario}>
-                            Deletar
-                        </button>
                         <button type="submit" onClick={this.handleChange}>
-                            Alterar
+                            Criar
                         </button>
                     </div>
                 </form>
