@@ -8,12 +8,13 @@ app.use(express.json());
 
 // Iniciando o DB
 mongoose.connect(
-    "mongodb://localhost:27017/nodep", 
+    "mongodb://localhost:27017/nodeapi", 
     { useNewUrlParser: true});
 
-    requireDir("./src/models");
+requireDir("./src/models");
 
 // Primeira Rota
+
 app.use('/api', require('./src/routes'));
 
 
