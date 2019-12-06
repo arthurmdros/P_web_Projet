@@ -2,12 +2,12 @@ const express = require('express');
 
 const routes = express.Router();
 
-const ProductController = require('./controllers/ProductCrontroller');
-routes.get('/products', ProductController.index);
-routes.get('/products/:id', ProductController.show);
-routes.post('/products', ProductController.store);
-routes.put('/products/:id', ProductController.update);
-routes.delete('/products/:id', ProductController.destroy);
+const ProviderController = require('./controllers/ProviderCrontroller');
+routes.get('/providers', ProviderController.index);
+routes.get('/providers/:id', ProviderController.show);
+routes.post('/providers', ProviderController.store);
+routes.put('/providers/:id', ProviderController.update);
+routes.delete('/providers/:id', ProviderController.destroy);
 
 
 module.exports = routes;

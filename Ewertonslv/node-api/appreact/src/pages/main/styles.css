@@ -1,11 +1,11 @@
-.product-list {
+.provider-list {
     max-width: 700px;
     margin: 20px auto 0;
     padding: 0 20px;
 
 }
 
-.product-list article{
+.provider-list article{
     background: #fff;
     border: 1px solid #DDD;
     border-radius: 5px;
@@ -13,7 +13,7 @@
     margin-bottom: 20px;
 }
 
-.product-list article p{
+.provider-list article p{
     font-size: 16px;
     color: #999;
     margin-top: 5px;
@@ -21,7 +21,7 @@
 
 }
 
-.product-list article a{
+.provider-list article a{
     height: 42px;
     border-radius: 5px;
     border: 2px solid #da552f;
@@ -37,18 +37,18 @@
     transition: all 0.2s;
 }
 
-.product-list article a:hover{
+.provider-list article a:hover{
     background: #da522f;
     color: #FFF;
 }
 
-.product-list .actions{
+.provider-list .actions{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.product-list .actions button{
+.provider-list .actions button{
     padding: 10px;
     border-radius: 5px;
     border: 0;
@@ -59,16 +59,16 @@
     cursor: pointer;
 }
 
-.product-list .actions button[disabled] {
+.provider-list .actions button[disabled] {
     opacity: 0.5;
     cursor: default;
 }
 
-.product-list .actions button:hover{
+.provider-list .actions button:hover{
     opacity: 0.7;
 }
 
-.product-list .actions button[disabled] {
+.provider-list .actions button[disabled] {
     opacity: 0.5;
-    
+
 }

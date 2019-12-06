@@ -1,64 +1,66 @@
 import React, { Component } from "react";
 import api from "../../services/api";
+import {Link} from 'react-router-dom';
 
 import './styles.css';
 
 export default class Main extends Component {
     state = {
-        products: [],
-        productInfo: {},
+        providers: [],
+        providerInfo: {},
         page: 1,
     }
 
     componentDidMount(){
-        this.loadProducts();
+        this.loadProviders();
     }
-    loadProducts = async (page = 1) => {
-        const response = await api.get('/products?page=${page}');
+    loadProviders = async (page = 1) => {
+        const response = await api.get(`/providers?page=${page}`);
         
-        const {docs, ... productInfo} = response.data;
+        const { docs, ... providerInfo } = response.data;
 
-        this.setState({ products: docs, productInfo, page});
+        this.setState({ providers: docs, providerInfo, page});
     };
 
     prevPage = () => {
-        const {page, productInfo} = this.state; 
+        const {page, providerInfo} = this.state; 
 
         if (page === 1) return;
 
         const pageNumber = page - 1;
 
-        this.loadProducts(pageNumber);
-    }
+        this.loadProviders(pageNumber);
+    };
+
     nextPage = () => {
-        const {page, productInfo} = this.state;
+        const {page, providerInfo} = this.state;
         
-        if (page === productInfo.pages) return;
+        if (page === providerInfo.pages) return;
         
         const pageNumber = page + 1;
 
-        this.loadProducts(pageNumber);
+        this.loadProviders(pageNumber);
     };
 
     render(){
-        const { products, page, productInfo } = this.state;
+        const { providers, page, providerInfo } = this.state;
 
     return (
-        <div className="product-list">
-            {products.map(product => (
-              <article key={product._id}>
-                  <strong>{product.title}</strong>
-            <p>{product.description}</p>
+        <div className="provider-list">
+            {providers.map(provider => (
+              <article key={provider._id}>
+                  <strong>{provider.title}</strong>
+            <p>{provider.description}</p>
             
-            <a href="">Acessar</a>
+            <Link to={`/providers/${provider._id}`}>Acessar</Link>
               </article>
             ))}
             <div className= "actions">
                 <button disabled={page === 1} onClick ={this.prevPage}>Anterior</button>
-                <button disabled={page === productInfo.pages} onClick ={this.nextPage}>Proximo</button>
+                <button disabled={page === providerInfo.pages} onClick ={this.nextPage}>Proximo</button>
             </div>
         </div>
-    )
+    );
     }
 
 }
