@@ -61,8 +61,10 @@ adequado para a fundação de uma biblioteca ou estrutura da Web.
 * yarn add rec-router-dom
  
 
+### PARA RODAR O QUE JÁ FOI DESENVOLVIDO
 
-
-
+*Basta ter instalado o node e o react
+*As pastas que apresentam o react, basta acessar e rodar no terminal o seguinte comando: react-scripts start dentro do src da pasta react.
+*Para rodar a parte do node basta entrar na pasta src e rodar no terminal o seguinte comando: node "nomedoarquivo".js ou nodemon "nomedoarquivo".js
 
 
