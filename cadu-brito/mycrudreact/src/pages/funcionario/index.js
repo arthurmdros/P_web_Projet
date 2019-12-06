@@ -8,7 +8,7 @@ export default class Funcionario extends Component{
         this.state = {
             funcionario: {},
             cpf: '',
-            nome :'',
+            nome: '',
             url: '',
         };
     }
@@ -18,7 +18,7 @@ export default class Funcionario extends Component{
 
         const { id } = this.props.match.params;
 
-        api.delete(`/funcionarios/${id}`);
+        api.delete(`/funcionario/${id}`);
 
         alert('sucesso!');
     }
@@ -30,7 +30,7 @@ export default class Funcionario extends Component{
             if (this.state.nome != '')
                 this.state.funcionario.nome = this.state.nome;
             if (this.state.url != '')
-                this.state.funcionario.url = this.state.url
+                this.state.funcionario.url = this.state.url;
             console.log(this.state.funcionario);
         });
     }
@@ -42,7 +42,7 @@ export default class Funcionario extends Component{
         
         const { id } = this.props.match.params;
 
-        api.put(`/funcionarios/${id}`, funcionario);
+        api.putt(`/funcionarios/${id}`, funcionario);
 
         alert('atualizado com sucesso!');
     }
@@ -50,14 +50,13 @@ export default class Funcionario extends Component{
     async componentDidMount(){
         const { id } = this.props.match.params;
 
-        const response = await api.get(`/funcionarios/${id}`);
+        const response = await api.get(`/funcionario/${id}`);
 
         this.setState({ funcionario: response.data });
     }
 
     render(){
         const { funcionario } = this.state;
-
         return (
             <div className="funcionario-info">
                 <form onSubmit={this.handleSubmit}>
@@ -89,8 +88,7 @@ export default class Funcionario extends Component{
                             </tr>
                         </tbody>
                     </table>
-                    <div className="actions">
-                        <Link to={`/funcionarios`}>Voltar</Link>
+                    <div className="actions"><Link to={`/funcionarios`}>Voltar</Link>
                         <button type="submit" onClick={this.deleteFuncionario}>
                             Deletar
                         </button>

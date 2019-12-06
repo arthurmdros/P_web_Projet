@@ -20,7 +20,5 @@ const CustomerSchema = new mongoose.Schema({
         required: true,
     }
 });
-
 CustomerSchema.plugin(mongoosePaginate);
-
 mongoose.model('Customer', CustomerSchema);

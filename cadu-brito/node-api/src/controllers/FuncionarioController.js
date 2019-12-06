@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Funcionario = mongoose.model('Funcionario');
 module.exports = { //criar controlador e registrar nas
     async index(req, res){
-        const { page } = req.query;
+        const { page = 1 } = req.query;
         const funcionario = await Funcionario.paginate({},{page,limit:10});
 
         return res.json(funcionario);
