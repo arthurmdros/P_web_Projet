@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-import './style.css';
 
-export default class Customer extends Component{
+export default class New_Provider extends Component{
     constructor(){
         super();
         this.state = {
@@ -15,16 +14,6 @@ export default class Customer extends Component{
         };
     }
 
-    deleteProvider = event => {
-        event.preventDefault();
-
-        const { id } = this.props.match.params;
-
-        api.delete(`/provider/${id}`);
-
-        alert('Fornecedor deletado com sucesso!');
-    }
-
     handleChange = event => {
         this.setState({[event.target.name] : event.target.value}, ()=>{
             if (this.state.nome != '')
@@ -32,9 +21,10 @@ export default class Customer extends Component{
             if (this.state.cnpj != '')
                 this.state.provider.cnpj = this.state.cnpj;
             if (this.state.endereco != '')
-                this.state.provider.endereco = this.state.endereco;
+            this.state.provider.endereco = this.state.endereco;
             if (this.state.telefone != '')
-                this.state.provider.telefone = this.state.telefone;
+            this.state.provider.telefone = this.state.telefone;
+          
             console.log(this.state.provider);
         });
     }
@@ -42,22 +32,15 @@ export default class Customer extends Component{
     handleSubmit = event => {
         event.preventDefault();
 
-        const customer = this.state.provider;
-        
-        const { id } = this.props.match.params;
+        const provider = this.state.provider;
 
-        api.put(`/provider/${id}`, customer);
+      
 
-        alert('Fornecedor atualizado com sucesso!');
+        api.post('providers/', provider);
+
+        alert('Fornecedor criado com sucesso.');
     }
 
-    async componentDidMount(){
-        const { id } = this.props.match.params;
-
-        const response = await api.get(`/providers/${id}`);
-
-        this.setState({ customer: response.data });
-    }
 
     render(){
         const { provider } = this.state;
@@ -65,14 +48,14 @@ export default class Customer extends Component{
         return (
             <div className="provider-info">
                 <form onSubmit={this.handleSubmit}>
-                    <table>
+                <table>
                         <tbody>
                             <tr>
                                 <td>
                                     <p><strong>Nome:</strong></p>
                                 </td>
                                 <td>
-                                    <input name="nome" className="provider" defaultValue={provider.nome} onChange={this.handleChange}/>
+                                    <input name="nome" className="provider" onChange={this.handleChange}/>
                                 </td>
                             </tr>
                             <tr>
@@ -80,7 +63,7 @@ export default class Customer extends Component{
                                     <p><strong>cnpj:</strong></p>
                                 </td>
                                 <td>
-                                    <input name="cnpj" className="provider" defaultValue={provider.cnpj} onChange={this.handleChange}/>
+                                    <input name="cnpj" className="provider" onChange={this.handleChange}/>
                                 </td>
                             </tr>
                             <tr>
@@ -88,7 +71,7 @@ export default class Customer extends Component{
                                     <p><strong>endereco:</strong></p>
                                 </td>
                                 <td>
-                                    <input name="endereco" className="provider" defaultValue={provider.endereco} onChange={this.handleChange} />
+                                    <input name="endereco" className="provider" onChange={this.handleChange} />
                                 </td>
                             </tr>
                             <tr>
@@ -96,18 +79,15 @@ export default class Customer extends Component{
                                     <p><strong>telefone:</strong></p>
                                 </td>
                                 <td>
-                                    <input name="telefone" className="provider" defaultValue={provider.telefone} onChange={this.handleChange} />
+                                    <input name="telefone" className="provider" onChange={this.handleChange} />
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div className="actions">
                         <Link to={`/api/providers`}>Voltar</Link>
-                        <button type="submit" onClick={this.deleteProvider}>
-                            Deletar
-                        </button>
                         <button type="submit" onClick={this.handleChange}>
-                            Alterar
+                            Criar
                         </button>
                     </div>
                 </form>
