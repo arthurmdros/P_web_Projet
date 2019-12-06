@@ -3,22 +3,23 @@ const mongoosePaginate = require('mongoose-paginate');
 
 
 const ProviderSchema = new mongoose.Schema({
-    title: {
+    nome: {
         type: String,
         required: true,  
     },
-    description: {
-        type: String,
-        required: true,
-    },
-    url: {
-        type: String,
-        required: true,
-    },
-    createdAt: { 
+    cnpj: { 
         type: Date,
-        default: Date.now,
+        required: true,
     },
+    endereco: {
+        type: String,
+        required: true,
+    },
+    telefone: {
+        type: int,
+        required: true,
+    },
+
 });
 
 ProviderSchema.plugin(mongoosePaginate);
