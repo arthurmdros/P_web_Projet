@@ -51,7 +51,7 @@ export default class Mainfuncionarios extends Component {
                         <p><strong>CPF:</strong> '{funcionario.cpf}'</p>
                         <p><strong>Nome do funcionario:</strong> {funcionario.nome}</p>
                         <p><strong>Url:</strong> '{funcionario.url}'</p>
-                        <Link to={`/funcionario/${funcionario._id}`}>Consultar</Link>
+                        <Link to={`/funcionarios/${funcionario._id}`}>Consultar</Link>
                         <br /><br />
                     </article>
                 ))}

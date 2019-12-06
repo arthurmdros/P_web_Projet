@@ -18,7 +18,7 @@ export default class Funcionario extends Component{
 
         const { id } = this.props.match.params;
 
-        api.delete(`/funcionario/${id}`);
+        api.delete(`/funcionarios/${id}`);
 
         alert('sucesso!');
     }
@@ -42,7 +42,7 @@ export default class Funcionario extends Component{
         
         const { id } = this.props.match.params;
 
-        api.putt(`/funcionarios/${id}`, funcionario);
+        api.put(`/funcionarios/${id}`, funcionario);
 
         alert('atualizado com sucesso!');
     }
@@ -50,7 +50,7 @@ export default class Funcionario extends Component{
     async componentDidMount(){
         const { id } = this.props.match.params;
 
-        const response = await api.get(`/funcionario/${id}`);
+        const response = await api.get(`/funcionarios/${id}`);
 
         this.setState({ funcionario: response.data });
     }

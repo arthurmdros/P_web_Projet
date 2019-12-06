@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-
+import './styles.css';
 export default class NovoFuncionario extends Component{
     constructor(){
         super();
@@ -33,7 +33,7 @@ export default class NovoFuncionario extends Component{
 
         api.post('funcionario/', funcionario);
 
-        alert('Cliente criado com sucesso.');
+        alert('sucesso.');
     }
 
 
