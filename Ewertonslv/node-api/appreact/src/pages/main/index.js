@@ -17,7 +17,7 @@ export default class Main extends Component {
     loadProviders = async (page = 1) => {
         const response = await api.get(`/providers?page=${page}`);
         
-        const { docs, ... providerInfo } = response.data;
+        const { docs, ...providerInfo } = response.data;
 
         this.setState({ providers: docs, providerInfo, page});
     };
