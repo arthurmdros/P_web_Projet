@@ -3,7 +3,7 @@ import api from '../../services/api';
 import './styles.css';
 
 import { Link } from 'react-router-dom';
-export default class Main extends Component {
+export default class Mainfuncionarios extends Component {
     state = {
         funcionarios: [],
         funcionarioInfo: {},
@@ -15,7 +15,7 @@ export default class Main extends Component {
     }
 
     loadFuncionarios = async ( page = 1 ) => {
-        const response = await api.get(`/funcionarios?page=${page}`);
+        const response = await api.get(`/funcionario?page=${page}`);
 
         const { docs, ... funcionarioInfo } = response.data;
 
@@ -59,7 +59,7 @@ export default class Main extends Component {
                     <button disabled={page === 1} onClick={this.prevPage}>
                         Anterior
                     </button>
-                    <Link to={`/novofuncionario`}>Adiconar oum Funcionario</Link>
+                    <Link to={`/novofuncionario`}>Adiconar um Funcionario</Link>
                     <button disabled={page === funcionarioInfo.pages} onClick={this.nextPage}>
                         Próxima
                     </button>

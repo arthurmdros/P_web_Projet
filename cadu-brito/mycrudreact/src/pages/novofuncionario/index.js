@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-
-export default class Novo_Funcionario extends Component{
+import './styles.css';
+export default class NovoFuncionario extends Component{
     constructor(){
         super();
         this.state = {
             funcionario: {},
             cpf: '',
-            nome :'',
+            nome:'',
             url: '',
         };
     }
     handleChange = event => {
         this.setState({[event.target.name] : event.target.value}, ()=>{
             if (this.state.cpf != '')
-                this.state.funcionario.cpf = this.state.cpf;
+            this.state.funcionario.cpf = this.state.cpf;
             if (this.state.nome != '')
                 this.state.funcionario.nome = this.state.nome;
             if (this.state.url != '')
-                this.state.funcionario.url = this.state.url
+                this.state.funcionario.url = this.state.url;
             console.log(this.state.funcionario);
         });
     }
-    
 
     handleSubmit = event => {
         event.preventDefault();
@@ -32,9 +31,9 @@ export default class Novo_Funcionario extends Component{
 
         //const { id } = this.props.match.params;
 
-        api.post('funcionarios/', funcionario);
+        api.post('funcionario/', funcionario);
 
-        alert('criado com sucesso.');
+        alert('sucesso.');
     }
 
 
@@ -43,44 +42,45 @@ export default class Novo_Funcionario extends Component{
 
         return (
             <div className="funcionario-info">
-                <form onSubmit={this.handleSubmit}>
-                <table>
-                        <tbody>
+            <form onSubmit={this.handleSubmit}>
+            <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                             <p><strong>CPF:</strong></p>
+                        </td>
+                         <td>
+                             <input name="cpf" className="funcionarior-cpf" onChange={this.handleChange} />
+                        </td>
+                    </tr>
                         <tr>
-                                <td>
-                                    <p><strong>CPF:</strong></p>
-                                </td>
-                                <td>
-                                    <input name="cpf" className="funcionario-cpf" defaultValue={funcionario.cpf} onChange={this.handleChange} />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><strong>Nome:</strong></p>
-                                </td>
-                                <td>
-                                    <input name="nome" className="funcionario-name" defaultValue={funcionario.nome} onChange={this.handleChange}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><strong>URL:</strong></p>
-                                </td>
-                                <td>
-                                    <input name="url" className="funcionario-cpf" defaultValue={funcionario.cpf} onChange={this.handleChange} />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div className="actions">
-                        <Link to={`/funcionarios`}>Voltar</Link>
-                        <button type="submit" onClick={this.handleChange}>
-                            Criar
-                        </button>
-                    </div>
-                </form>
-                 
-            </div>
-        );
-    }
+                            <td>
+                                <p><strong>Nome:</strong></p>
+                            </td>
+                            <td>
+                                <input name="nome" className="funcionario-name" onChange={this.handleChange}/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p><strong>URL:</strong></p>
+                            </td>
+                            <td>
+                                <input name="url" className="funcionario-url" onChange={this.handleChange}/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div className="actions">
+                    <Link to={`/funcionarios`}>Voltar</Link>
+                    <button type="submit" onClick={this.handleChange}>
+                        Criar
+                    </button>
+                </div>
+            </form>
+             
+        </div>
+    );
+}
 }

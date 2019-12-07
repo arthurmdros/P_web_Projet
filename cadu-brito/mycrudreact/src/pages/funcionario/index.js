@@ -8,7 +8,7 @@ export default class Funcionario extends Component{
         this.state = {
             funcionario: {},
             cpf: '',
-            nome :'',
+            nome: '',
             url: '',
         };
     }
@@ -30,7 +30,7 @@ export default class Funcionario extends Component{
             if (this.state.nome != '')
                 this.state.funcionario.nome = this.state.nome;
             if (this.state.url != '')
-                this.state.funcionario.url = this.state.url
+                this.state.funcionario.url = this.state.url;
             console.log(this.state.funcionario);
         });
     }
@@ -57,7 +57,6 @@ export default class Funcionario extends Component{
 
     render(){
         const { funcionario } = this.state;
-
         return (
             <div className="funcionario-info">
                 <form onSubmit={this.handleSubmit}>
@@ -89,8 +88,7 @@ export default class Funcionario extends Component{
                             </tr>
                         </tbody>
                     </table>
-                    <div className="actions">
-                        <Link to={`/funcionarios`}>Voltar</Link>
+                    <div className="actions"><Link to={`/funcionarios`}>Voltar</Link>
                         <button type="submit" onClick={this.deleteFuncionario}>
                             Deletar
                         </button>

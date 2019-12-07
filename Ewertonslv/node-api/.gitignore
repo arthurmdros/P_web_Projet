@@ -1,5 +1,5 @@
-# Created by https://www.gitignore.io/api/node,windows
-# Edit at https://www.gitignore.io/?templates=node,windows
+# Created by https://www.gitignore.io/api/node,react,windows
+# Edit at https://www.gitignore.io/?templates=node,react,windows
 
 ### Node ###
 # Logs
@@ -79,6 +79,9 @@ typings/
 # nuxt.js build output
 .nuxt
 
+# react / gatsby 
+public/
+
 # vuepress build output
 .vuepress/dist
 
@@ -90,6 +93,20 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_componets
+
+*.sublime*
+
+psd
+thumb
+sketch
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -117,4 +134,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/node,windows
+# End of https://www.gitignore.io/api/node,react,windows
