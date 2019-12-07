@@ -36,29 +36,16 @@ um servidor web), capazes de manipular milhares de conexões/requisições simul
 tempo real, numa única máquina física. O HTTP é um cidadão de primeira classe no
 Node.js, projetado com streaming e baixa latência em mente. Isso torna o Node.js bem
 adequado para a fundação de uma biblioteca ou estrutura da Web.
-## DEPENDÊNCIAS E INSTALAÇÕES
+## INSTALAÇÕES APARTIR DO REPOSITRIO
 ### Node API
-* instalar o node.js :https://nodejs.org/en/
-* Criar uma pasta para seu projeto;
-* npm init -y para iniciar uma api
-* npm install express
-* npm install -D nodemon
-* instalar mongoDb e configurar
-* mongod 
-* npm install mongoose
-* testar rotas de registro instalar insomnia/rest
-* npm mongoose-paginate
-* npm install cors             
- 
- 
- 
+* instalar o node.js :https://nodejs.org/en/  
+* instalar mongoDb;  
+* iniciar terminal __mongod__;  
+* dentro da pasta da node-api use __npm i__ instala dependencias encontradas no package.json;
 ### REACT
-* precisa node instalado 
-* yarn --do site yarnpkg.com
-* npm install -g create-react-app e para criar create-react-app nome_app
-* startar o projeto -npm start
-* acessar api rests -yarn  add axios
-* yarn add rec-router-dom
+* precisa node instalado, o pacode npm normalmente vem junto com o node,
+* npm install -g create-react-app
+* dentro da pasta da react-api use __npm i__ instala dependencias encontradas no package.json;
  
 
 ### PARA RODAR O QUE JÁ FOI DESENVOLVIDO
