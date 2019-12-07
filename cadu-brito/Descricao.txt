@@ -1,3 +1,0 @@
-Pasta criada para adicionar arquivos de implementação do CRUD Funcionarios.
-E-mail: clodoaldo.brtp4@gmail.com
-Matrícula:20170120742
