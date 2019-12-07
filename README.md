@@ -46,7 +46,7 @@ adequado para a fundação de uma biblioteca ou estrutura da Web.
 * precisa node instalado, o pacode npm normalmente vem junto com o node,
 * npm install -g create-react-app
 * dentro da pasta da react-api use __npm i__ instala dependencias encontradas no package.json;
-* npm install react-router-dom;
+* caso ainda precise se nao for reconhecido no package e dependendo do erro: npm install react-router-dom ou npm install axios
  
 
 ### PARA RODAR O QUE JÁ FOI DESENVOLVIDO
