@@ -6,20 +6,17 @@ Instruções de instalação e execução do projeto:
     3 - Instale o MongoDB através do comando:
         docker pull mongo
         (OBS.: talvez resulte em erro de permissão. Digite execute o comando sudo su para evitar problemas com permissão.)
+        (OBS2.: é possível instalar apenas o mongodb sem instalar o docker, mas não é recomendado)
     4 - Suba um novo container na máquina:
         docker run --name mongodb -p 27017:27017 -d mongo
-    5 - Instale o Robo3T:
-        https://robomongo.org/
-    6 - Crie uma nova conexão no Robo3T em localhost:27017;
-    7 - Instale Insomnia (caso deseje manipular registros com get, post etc.):
-        https://insomnia.rest/
-    8 - Instale o Yarn:
+    5 - Para testar se o MongoDB está funcionando, abra um navegador e tente acessar http://localhost:27017/
+        Caso o MongoDB esteja rodando, aparecerá a seguinte mensagem:
+        "It looks like you are trying to access MongoDB over HTTP on the native driver port."
+    6 - Instale o Yarn:
         https://yarnpkg.com/lang/en/
-    9 - Execute o comando:
-        npm install -g react-scripts
-        npm install -g create-react-app
-    
-    10- Execute o comando na pasta raiz do projeto:
-        docker start mongodb
-    11- Abrir o terminal na pasta raiz e executar o comando "npm run dev";
-    12- Abrir o terminal na pasta reactapp e executar o comando "npm start";
+    7 - Na pasta raiz do projeto, baixe as dependências do NodeJS utilizando o comando:
+        npm i
+    8 - Na pasta reactapp, baixe as dependências do ReactJS utilizando novamente o comando:
+        npm i
+    9 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
+    10- Abrir o terminal na pasta reactapp e executar o comando "npm start";
