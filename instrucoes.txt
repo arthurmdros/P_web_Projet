@@ -20,3 +20,4 @@ Instruções de instalação e execução do projeto:
         npm i
     9 - Abrir o terminal na pasta raiz e executar o comando "npm run dev";
     10- Abrir o terminal na pasta reactapp e executar o comando "npm start";
+    11- Acesse http://localhost:3000/api/user em um navegador para ter acesso ao menu;
