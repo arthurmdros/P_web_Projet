@@ -37,7 +37,23 @@ tempo real, numa única máquina física. O HTTP é um cidadão de primeira clas
 Node.js, projetado com streaming e baixa latência em mente. Isso torna o Node.js bem
 adequado para a fundação de uma biblioteca ou estrutura da Web.
 
+## INSTALAÇÕES APARTIR DO REPOSITRIO
+### Node API
+* instalar o node.js :https://nodejs.org/en/  
+* instalar mongoDb;  
+* iniciar terminal __mongod__;  
+* dentro da pasta da node-api use __npm i__ instala dependencias encontradas no package.json;
+### REACT
+* precisa node instalado, o pacode npm normalmente vem junto com o node,
+* npm install -g create-react-app
+* dentro da pasta da react-api use __npm i__ instala dependencias encontradas no package.json;
+* caso ainda precise se nao for reconhecido no package e dependendo do erro: npm install react-router-dom ou npm install axios
+ 
 
+### PARA RODAR O QUE JÁ FOI DESENVOLVIDO
 
+*Basta ter instalado o node e o react
+*As pastas que apresentam o react, basta acessar e rodar no terminal o seguinte comando: react-scripts start dentro do src da pasta react.
+*Para rodar a parte do node basta entrar na pasta src e rodar no terminal o seguinte comando: node "nomedoarquivo".js ou nodemon "nomedoarquivo".js
 
 
